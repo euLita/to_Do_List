@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Neuton', serif;
+    outline: none;
 }
 body {
     background: url("./img/handwriting.png");
@@ -16,6 +17,14 @@ body {
     padding: 20px;
     margin: 100px auto 0;
     margin-top: 100px;
+}
+
+.input-task {
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
 }
 
 img {
