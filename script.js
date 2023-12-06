@@ -25,13 +25,13 @@ function showTasks() {
     let newLi = ''
 
     /*['comprar café', 'estudar programação']......*/
-    myListItems.forEach((task) => {
+    myListItems.forEach((task, index) => {
         newLi = newLi + `
 
          <li class="task">
             <img src="./img/check_vintage.png" alt="check-task">
             <p>${task}</p>
-            <img src="./img/trash_vintage.png" alt="trash-task">
+            <img src="./img/trash_vintage.png" alt="trash-task" onclick="deleteItem(${index})">
          </li>
 
         `
@@ -39,7 +39,12 @@ function showTasks() {
 
     listComplete.innerHTML = newLi
 
+}
 
+function deleteItem (index) {
+    myListItems.splice(index, 1)
+    console.log('posição', index)
+    showTasks()
 }
 
 button.addEventListener('click', addNewTask)
