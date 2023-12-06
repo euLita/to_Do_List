@@ -13,7 +13,11 @@ function getValueInput() {
 let myListItems = []
 
 function addNewTask() {
-    myListItems.push(input.value)
+    myListItems.push({
+        task: input.value,
+        completed: false
+    })
+
     input.value = ''    /* will clean the input */
 
     showTasks()
@@ -25,12 +29,12 @@ function showTasks() {
     let newLi = ''
 
     /*['comprar café', 'estudar programação']......*/
-    myListItems.forEach((task, index) => {
+    myListItems.forEach((item, index) => {
         newLi = newLi + `
 
-         <li class="task">
-            <img src="./img/check_vintage.png" alt="check-task">
-            <p>${task}</p>
+         <li class="task ${item.completed && "done"}" >
+            <img src="./img/check_vintage.png" alt="check-task" onclick="completeTask(${index})">
+            <p>${item.task}</p>
             <img src="./img/trash_vintage.png" alt="trash-task" onclick="deleteItem(${index})">
          </li>
 
@@ -39,6 +43,14 @@ function showTasks() {
 
     listComplete.innerHTML = newLi
 
+    localStorage.setItem ('lists', JSON.stringify[myListItems])
+
+}
+
+function completeTask (index) {
+    console.log('posição', index)
+    myListItems[index].completed = !myListItems[index].completed
+    showTasks()
 }
 
 function deleteItem (index) {
