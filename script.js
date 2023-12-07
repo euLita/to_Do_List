@@ -43,7 +43,7 @@ function showTasks() {
 
     listComplete.innerHTML = newLi
 
-    localStorage.setItem ('lists', JSON.stringify[myListItems])
+    localStorage.setItem ('lists', JSON.stringify(myListItems))
 
 }
 
